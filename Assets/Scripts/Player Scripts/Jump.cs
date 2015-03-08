@@ -12,6 +12,7 @@ namespace Assets.Scripts.Player_Scripts
     class Jump
     {
         public static bool IsJumping;
+        public static bool Improve;
 
         private static float PowerFirst;
         private static float PowerSecond;
@@ -22,6 +23,7 @@ namespace Assets.Scripts.Player_Scripts
         public static Sequence sequence;
 
         private static float time;
+        private static float ImproveTime;
 
         public static void Initialize(float _PowerFirst, float _PowerSecond, Rigidbody2D _rigidbody2D, Legs _LegsController, Vector2 _ForceVelocity)
         {
@@ -75,6 +77,13 @@ namespace Assets.Scripts.Player_Scripts
             else if (LegController.isTouchGround == false && IsJumping == false)
             {
                 sequence = Sequence.SECOND;
+            }
+
+            if (LegController.isTouchGround == true && (Time.time - ImproveTime) > 0.6f)
+            {
+                ImproveTime = Time.time;
+                Improve = true;
+
             }
         }
 

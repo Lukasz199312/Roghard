@@ -6,6 +6,7 @@ public class Legs : MonoBehaviour {
     public Controller Controller;
     public bool isTouchGround;
 
+
     private float time;
 
 	// Use this for initialization
@@ -21,11 +22,11 @@ public class Legs : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (Time.time - time > 1.50f)
+        if (Time.time - time > 0.50f)
         {
-
+            
             isTouchGround = false;
-            Debug.Log("Koliza Leg EXIT");
+         
         }
     }
 
