@@ -12,7 +12,7 @@ namespace Assets.Scripts.Player_Scripts
     class Jump
     {
         public static bool IsJumping;
-        public static bool Improve;
+        public static bool Improve = true;
 
         private static float PowerFirst;
         private static float PowerSecond;
