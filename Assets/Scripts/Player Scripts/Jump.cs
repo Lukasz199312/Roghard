@@ -66,7 +66,7 @@ namespace Assets.Scripts.Player_Scripts
         public static void UpdateStatus()
         {
             
-            if (LegController.isTouchGround == true && (Time.time - time) > 0.5f)
+            if (LegController.isTouchGround == true && (Time.time - time) > 0.6f)
             {
                 time = Time.time;
                 sequence = Sequence.FIRST;
@@ -79,7 +79,7 @@ namespace Assets.Scripts.Player_Scripts
                 sequence = Sequence.SECOND;
             }
 
-            if (LegController.isTouchGround == true && (Time.time - ImproveTime) > 0.6f)
+            if (LegController.isTouchGround == true && (Time.time - ImproveTime) > 1.0f)
             {
                 ImproveTime = Time.time;
                 Improve = true;

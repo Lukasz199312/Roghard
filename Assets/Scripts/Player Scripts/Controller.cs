@@ -50,7 +50,13 @@ public class Controller : MonoBehaviour {
 
             float vel = 0;
 
-            if (GetComponent<Rigidbody2D>().velocity.y > 3)
+            if (GetComponent<Rigidbody2D>().velocity.y > 4)
+            {
+                vel = GetComponent<Rigidbody2D>().velocity.y - 3;
+
+                Debug.Log("Case 1");
+            }
+            else if (GetComponent<Rigidbody2D>().velocity.y > 3)
             {
                 vel = GetComponent<Rigidbody2D>().velocity.y - 2.75f;
 
@@ -87,7 +93,7 @@ public class Controller : MonoBehaviour {
 
         Jump.UpdateStatus();
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.touches[0].phase == TouchPhase.Began)
+        if (Input.GetKeyDown(KeyCode.Space) )
         {
             LegController.isTouchGround = false;
             Jump.Improve = false;
