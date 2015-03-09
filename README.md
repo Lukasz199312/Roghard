@@ -1,7 +1,4 @@
-# Roghard
-
-
-#Features Version Alpha 1.17
+#Features -  Version Alpha 1.17
 
 * Add Dead Support System
 * Add Skill
