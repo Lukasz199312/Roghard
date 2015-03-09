@@ -4,12 +4,16 @@ using System.Collections;
 public class Tors : MonoBehaviour {
     public Horn_Force Skill;
     public bool ActiveSkill;
-    public float time;
+    public float Coldowntime;
+    public float DurationTime;
 
     private Horn_Force Skills;
 	// Use this for initialization
 	void Start () {
         ActiveSkill = false;
+
+        DurationTime = Time.time;
+        Coldowntime = Time.time;
 	}
 	
 	// Update is called once per frame
@@ -45,5 +49,31 @@ public class Tors : MonoBehaviour {
         Skills = Instantiate(Skill.gameObject, transform.position, Quaternion.identity) as Horn_Force;
         Skills.Active();
 
+    }
+
+
+    public void StartSkill()
+    {
+        if (Time.time - Coldowntime > 5){
+            ActiveSkill = true;
+            Coldowntime = Time.time;
+            DurationTime = Time.time;
+
+            Debug.Log("Skill Active");
+        }
+
+
+
+      
+
+    }
+
+    public void SkillUpdate()
+    {
+        if (Time.time - DurationTime > 2 && ActiveSkill == true)
+        {
+            ActiveSkill = false;
+            Debug.Log("Skill Desactive");
+        }
     }
 }

@@ -114,6 +114,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1656675588}
   m_RootOrder: 4
+--- !u!114 &43732896
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11491912, guid: b51d88e98e758b64990f6eba0eb9e99a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2072741647}
+  m_Script: {fileID: 11500000, guid: 624ce7c75936e354a8af9504396e8d36, type: 3}
 --- !u!1 &73809563
 GameObject:
   m_ObjectHideFlags: 0
@@ -5610,11 +5616,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 491914, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.88000011
+      value: -25.8999996
       objectReference: {fileID: 0}
     - target: {fileID: 491914, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.25999999
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 491914, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5716,6 +5722,10 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 11491914, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
+      propertyPath: TorseController
+      value: 
+      objectReference: {fileID: 43732896}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
   m_IsPrefabParent: 0

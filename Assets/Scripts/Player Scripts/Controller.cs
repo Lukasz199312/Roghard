@@ -11,7 +11,9 @@ public class Controller : MonoBehaviour {
 
     private bool addForce = false;
     public Vector2 Force;
+
     public Legs LegController;
+    public Tors TorseController;
 
     public Vector2 Old_Velocity;
 
@@ -92,6 +94,7 @@ public class Controller : MonoBehaviour {
 
 
         Jump.UpdateStatus();
+        TorseController.SkillUpdate();
 
         if (Input.GetKeyDown(KeyCode.Space) )
         {
@@ -101,6 +104,15 @@ public class Controller : MonoBehaviour {
 
        
         }
+
+        if (Input.GetKeyDown(KeyCode.Z) )
+        {
+            
+            TorseController.StartSkill();
+
+        }
+
+
     }
 
   void  OnCollisionEnter2D(Collision2D Collision_Object){
