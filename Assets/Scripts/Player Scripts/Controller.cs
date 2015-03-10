@@ -48,7 +48,7 @@ public class Controller : MonoBehaviour {
 
         if (GetComponent<Rigidbody2D>().velocity.y < Old_Velocity.y && Jump.Improve == true )
         {
-            Debug.Log("Opadam");
+      
 
             float vel = 0;
 
@@ -56,25 +56,25 @@ public class Controller : MonoBehaviour {
             {
                 vel = GetComponent<Rigidbody2D>().velocity.y - 3;
 
-                Debug.Log("Case 1");
+               
             }
             else if (GetComponent<Rigidbody2D>().velocity.y > 3)
             {
                 vel = GetComponent<Rigidbody2D>().velocity.y - 2.75f;
 
-                Debug.Log("Case 1");
+                
             }
 
             else if (GetComponent<Rigidbody2D>().velocity.y > 2)
             {
                 vel = GetComponent<Rigidbody2D>().velocity.y - 1.50f;
-                Debug.Log("Case 2");
+                
             }
 
             else if (GetComponent<Rigidbody2D>().velocity.y > 1)
             {
                 vel = GetComponent<Rigidbody2D>().velocity.y - 0.75f;
-                Debug.Log("Case 2");
+               
             }
 
 
@@ -96,13 +96,23 @@ public class Controller : MonoBehaviour {
         Jump.UpdateStatus();
         TorseController.SkillUpdate();
 
-        if (Input.GetKeyDown(KeyCode.Space) )
+
+
+        if (Input.touches.Length > 0)
+        {
+            if (Input.touches[0].phase == TouchPhase.Began)
+            {
+                LegController.isTouchGround = false;
+                Jump.Improve = false;
+                Jump.Start();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             LegController.isTouchGround = false;
             Jump.Improve = false;
             Jump.Start();
-
-       
         }
 
         if (Input.GetKeyDown(KeyCode.Z) )

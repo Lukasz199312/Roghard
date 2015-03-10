@@ -1,7 +1,9 @@
+#Features -  Version Alpha 1.17.2
+* Fixed Touch Phase
+
 #Features -  Version Alpha 1.17.1
 
 *Fixed Horn Skill bug
-
 
 #Features -  Version Alpha 1.17
 
