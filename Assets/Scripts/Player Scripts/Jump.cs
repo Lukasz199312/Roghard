@@ -44,6 +44,7 @@ namespace Assets.Scripts.Player_Scripts
 
             if (sequence == Sequence.FIRST)
             {
+                
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
 
                 rigidbody2D.AddForce(new Vector2(ForceVelocity.x, ForceVelocity.y * PowerFirst));

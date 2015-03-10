@@ -7,11 +7,14 @@ public class Tors : MonoBehaviour {
     public float Coldowntime;
     public float DurationTime;
 
+    public GameObject gm;
+
     private Horn_Force Skills;
 	// Use this for initialization
 	void Start () {
         ActiveSkill = false;
-
+   
+        
         DurationTime = Time.time;
         Coldowntime = Time.time;
 	}
@@ -34,8 +37,8 @@ public class Tors : MonoBehaviour {
             return;
         } 
 
-        Skills = Instantiate(Skill.gameObject, transform.position, Quaternion.identity) as Horn_Force;
-        Skills.Active();
+        GameObject SkillHorn = Instantiate(gm, transform.position, Quaternion.identity) as GameObject;
+        SkillHorn.GetComponent<Horn_Force>().Active();
     
     }
 
@@ -54,7 +57,7 @@ public class Tors : MonoBehaviour {
 
     public void StartSkill()
     {
-        if (Time.time - Coldowntime > 5){
+        if (Time.time - Coldowntime > 1){
             ActiveSkill = true;
             Coldowntime = Time.time;
             DurationTime = Time.time;

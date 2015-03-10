@@ -26,7 +26,7 @@ public class Controller : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+       // gameObject gm = Instantiate()
 	}
 
     void FixedUpdate()
