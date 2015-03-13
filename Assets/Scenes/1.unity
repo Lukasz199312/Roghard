@@ -1377,6 +1377,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 61f195a779fc6c04a8d51956755c923d, type: 2}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61f195a779fc6c04a8d51956755c923d, type: 2}
   m_IsPrefabParent: 0
@@ -1446,7 +1450,7 @@ GameObject:
   - 114: {fileID: 1328074487}
   - 114: {fileID: 1328074486}
   m_Layer: 5
-  m_Name: Button 1
+  m_Name: HornSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1520,7 +1524,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1328074487
@@ -1831,6 +1835,24 @@ EdgeCollider2D:
   - {x: 13.4845066, y: 6.16757536}
   - {x: 13.8447933, y: 5.8024888}
   - {x: 14.3803921, y: 5.23322868}
+--- !u!1 &1538018246
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 61f195a779fc6c04a8d51956755c923d, type: 2}
+  m_PrefabInternal: {fileID: 1284876650}
+--- !u!114 &1538018247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1538018246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1690312454, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1543868385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,6 +2525,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491912, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491914, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
+      propertyPath: HornSkillButton
+      value: 
+      objectReference: {fileID: 1328074486}
+    - target: {fileID: 11491914, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
+      propertyPath: ButtonHornSkill
+      value: 
+      objectReference: {fileID: 1328074486}
+    - target: {fileID: 11491914, guid: b51d88e98e758b64990f6eba0eb9e99a, type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

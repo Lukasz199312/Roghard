@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.Scripts.Player_Scripts;
+using UnityEngine.EventSystems;
 
 public class Controller : MonoBehaviour {
 
@@ -19,6 +20,8 @@ public class Controller : MonoBehaviour {
 
     private Vector2 MaxVelocity = new Vector2(0,0);
 
+
+
 	// Use this for initialization
 	void Start () {
         Jump.Initialize(1, 0.75f, GetComponent<Rigidbody2D>(), LegController, ForceVelocity);
@@ -26,7 +29,31 @@ public class Controller : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-       // gameObject gm = Instantiate()
+        Jump.UpdateStatus();
+        TorseController.SkillUpdate();
+
+
+        if (Input.touches.Length > 0 && !EventSystem.current.IsPointerOverGameObject() )
+        {
+
+
+            if (Input.touches[0].phase == TouchPhase.Began && TorseController.IsTap == false)
+            {
+                LegController.isTouchGround = false;
+                Jump.Improve = false;
+                Jump.Start();
+            }
+
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LegController.isTouchGround = false;
+            Jump.Improve = false;
+            Jump.Start();
+        }
+       
 	}
 
     void FixedUpdate()
@@ -88,32 +115,6 @@ public class Controller : MonoBehaviour {
         }
 
 
-      
-
-
-
-
-        Jump.UpdateStatus();
-        TorseController.SkillUpdate();
-
-
-
-        if (Input.touches.Length > 0)
-        {
-            if (Input.touches[0].phase == TouchPhase.Began)
-            {
-                LegController.isTouchGround = false;
-                Jump.Improve = false;
-                Jump.Start();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LegController.isTouchGround = false;
-            Jump.Improve = false;
-            Jump.Start();
-        }
 
         if (Input.GetKeyDown(KeyCode.Z) )
         {
@@ -121,8 +122,8 @@ public class Controller : MonoBehaviour {
             TorseController.StartSkill();
 
         }
-
-
+  
+        if(TorseController) TorseController.IsTap = false;
     }
 
   void  OnCollisionEnter2D(Collision2D Collision_Object){
@@ -135,6 +136,18 @@ public class Controller : MonoBehaviour {
       GetComponent<Rigidbody2D>().AddForce(Force, ForceMode2D.Impulse);
   }
 
-	
+
+  public void OnGUI()
+  {
+    
+      
+  }
+
+  public void test()
+  {
+      Debug.Log("test");
+  }
 }
+
+
 //Input.touches[0].phase == TouchPhase.Began
