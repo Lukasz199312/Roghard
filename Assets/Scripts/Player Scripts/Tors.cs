@@ -7,6 +7,8 @@ public class Tors : MonoBehaviour {
     public float Coldowntime;
     public float DurationTime;
 
+
+    private float OrginalSpeed;
     public bool IsTap { get; set; }
 
     public GameObject gm;
@@ -40,6 +42,8 @@ public class Tors : MonoBehaviour {
 
         GameObject SkillHorn = Instantiate(gm, transform.position, Quaternion.identity) as GameObject;
         SkillHorn.GetComponent<Horn_Force>().Active();
+
+        DeactivationSkill();
         
     
     }
@@ -67,6 +71,10 @@ public class Tors : MonoBehaviour {
 
             gameObject.GetComponentInParent<SpriteRenderer>().color = Color.red;
 
+            OrginalSpeed = gameObject.GetComponentInParent<Controller>().Speed;
+            gameObject.GetComponentInParent<Controller>().Speed = OrginalSpeed + (OrginalSpeed * 0.75f);
+
+            
             Debug.Log("Skill Active");
         }
 
@@ -78,11 +86,19 @@ public class Tors : MonoBehaviour {
 
     public void SkillUpdate()
     {
-        if (Time.time - DurationTime > 2 && ActiveSkill == true)
-        {
+                if (Time.time - DurationTime > 2 && ActiveSkill == true) DeactivationSkill();
+    }
+
+
+    public void DeactivationSkill()
+    {
+
             gameObject.GetComponentInParent<SpriteRenderer>().color = Color.white;
             ActiveSkill = false;
             Debug.Log("Skill Desactive");
-        }
+            gameObject.GetComponentInParent<Controller>().Speed = OrginalSpeed;
+
+            
+        
     }
 }

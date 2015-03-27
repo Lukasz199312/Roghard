@@ -44,7 +44,15 @@ public class Broken_Stones : MonoBehaviour {
 
         GetComponent<Renderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
+
+        var Children = Collision_Object.gameObject.GetComponentInChildren<Tors>();
+        
+        Children.DeactivationSkill();
+
         Destroy(gameObject, 0.02f);
+
+
+
 
     }
 }
