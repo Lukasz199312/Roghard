@@ -3,7 +3,8 @@ using System.Collections;
 using Assets.Scripts.Player_Scripts;
 using UnityEngine.EventSystems;
 
-public class Controller : MonoBehaviour {
+public class Controller : MonoBehaviour
+{
 
     public Vector2 ForceVelocity = new Vector2(0,0);
 
@@ -20,11 +21,13 @@ public class Controller : MonoBehaviour {
 
     private Vector2 MaxVelocity = new Vector2(0,0);
 
+    
 
 
 	// Use this for initialization
 	void Start () {
         Jump.Initialize(1, 0.75f, GetComponent<Rigidbody2D>(), LegController, ForceVelocity);
+       
 	}
 
 	// Update is called once per frame
@@ -32,17 +35,19 @@ public class Controller : MonoBehaviour {
         Jump.UpdateStatus();
         TorseController.SkillUpdate();
 
-
-        if (Input.touches.Length > 0 && !EventSystem.current.IsPointerOverGameObject() )
+        Touch[] touches = Input.touches;
+        foreach(Touch touch in touches)
+        if (Input.touches.Length > 0 && !EventSystem.current.IsPointerOverGameObject(touch.fingerId) )
         {
+            Debug.LogError("No body said it was easy,..");
 
-
-            if (Input.touches[0].phase == TouchPhase.Began && TorseController.IsTap == false)
+            if (Input.touches[0].phase == TouchPhase.Began)
             {
                 LegController.isTouchGround = false;
                 Jump.Improve = false;
                 Jump.Start();
             }
+
 
         }
 
@@ -137,16 +142,6 @@ public class Controller : MonoBehaviour {
   }
 
 
-  public void OnGUI()
-  {
-    
-      
-  }
-
-  public void test()
-  {
-      Debug.Log("test");
-  }
 }
 
 
