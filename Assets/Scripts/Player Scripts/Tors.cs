@@ -64,7 +64,9 @@ public class Tors : MonoBehaviour {
             ActiveSkill = true;
             Coldowntime = Time.time;
             DurationTime = Time.time;
-           
+
+            gameObject.GetComponentInParent<SpriteRenderer>().color = Color.red;
+
             Debug.Log("Skill Active");
         }
 
@@ -78,6 +80,7 @@ public class Tors : MonoBehaviour {
     {
         if (Time.time - DurationTime > 2 && ActiveSkill == true)
         {
+            gameObject.GetComponentInParent<SpriteRenderer>().color = Color.white;
             ActiveSkill = false;
             Debug.Log("Skill Desactive");
         }
